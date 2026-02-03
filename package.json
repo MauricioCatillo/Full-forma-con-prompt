@@ -1,0 +1,26 @@
+{
+  "name": "gimnasio-full-forma",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Sitio web premium para Gimnasio Full Forma (Astro + Tailwind).",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "dependencies": {
+    "astro": "latest",
+    "@astrojs/tailwind": "latest"
+  },
+  "devDependencies": {
+    "autoprefixer": "latest",
+    "postcss": "latest",
+    "tailwindcss": "latest",
+    "typescript": "latest"
+  }
+}

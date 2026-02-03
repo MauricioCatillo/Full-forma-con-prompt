@@ -1,0 +1,295 @@
+﻿---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PromoCards from "../components/PromoCards.astro";
+import TestimonialGrid from "../components/TestimonialGrid.astro";
+import RatingBadge from "../components/RatingBadge.astro";
+import { site } from "../data/site";
+
+const description =
+  "Gimnasio premium en Trujillo con musculación, cardio, funcional, sala grupal, sauna y cafetería. Promos Febrero 2026 y atención por WhatsApp.";
+---
+
+<BaseLayout title={site.name} description={description}>
+  <section class="section">
+    <div class="container grid gap-12 lg:grid-cols-2 lg:items-center">
+      <div>
+        <p class="badge">Gimnasio premium en Trujillo</p>
+        <h1 class="mt-6 font-heading text-4xl tracking-wide md:text-6xl">
+          {site.slogan}
+        </h1>
+        <p class="mt-6 text-lg text-mist">
+          Entrena en un espacio amplio, limpio y con máquinas listas para tu mejor
+          versión. Ambiente premium, energía alta y soporte real.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a
+            class="btn btn-primary"
+            href={site.whatsappLink}
+            data-analytics="whatsapp"
+            data-location="hero"
+          >
+            Agenda por WhatsApp
+          </a>
+          <a
+            class="btn btn-outline"
+            href={site.phoneLink}
+            data-analytics="call"
+            data-location="hero"
+          >
+            Llamar ahora
+          </a>
+        </div>
+        <div class="mt-8 flex flex-wrap gap-3 text-xs uppercase tracking-[0.25em] text-mist">
+          {site.services.map((service) => (
+            <span class="badge">{service}</span>
+          ))}
+        </div>
+      </div>
+      <div class="relative">
+        <!-- TODO: Reemplazar con foto real del local (optimizada en WebP) -->
+        <img
+          src="/images/placeholder-gym-1.svg"
+          alt="Sala de musculación — imagen referencial"
+          class="w-full rounded-3xl border border-white/10 shadow-2xl shadow-black/40"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section pt-0">
+    <div class="container">
+      <div class="card flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+        <RatingBadge />
+        <p class="text-sm text-mist">
+          {site.rating} de rating con {site.reviewsCount} reseñas. Instalaciones
+          limpias, personal amable y equipos en buenas condiciones.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a class="btn btn-secondary" href="/contacto">Reserva tu visita</a>
+          <a
+            class="btn btn-outline"
+            href={site.mapsLink}
+            target="_blank"
+            rel="noreferrer"
+            data-analytics="map"
+            data-location="rating-reviews"
+          >
+            Ver reseñas
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">Servicios premium</p>
+      <h2 class="mt-4 font-heading text-3xl md:text-4xl">
+        Entrenamiento completo para cada objetivo
+      </h2>
+      <p class="mt-4 max-w-2xl text-mist">
+        Musculación, cardio, funcional y sala grupal en un solo lugar. Todo diseñado
+        para progresar con consistencia.
+      </p>
+      <div class="mt-10 grid-cards">
+        {site.services.map((service) => (
+          <article class="card">
+            <h3 class="font-heading text-2xl tracking-wide">{service}</h3>
+            <p class="mt-3 text-mist">
+              Espacio dedicado con equipamiento listo para tu mejor sesión.
+            </p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section pt-0">
+    <div class="container grid gap-8 lg:grid-cols-2 lg:items-center">
+      <div>
+        <p class="eyebrow">Horarios</p>
+        <h2 class="mt-4 font-heading text-3xl md:text-4xl">Planifica tus sesiones</h2>
+        <p class="mt-4 text-mist">
+          Horarios por confirmar. Escríbenos por WhatsApp para la atención actual.
+        </p>
+        <div class="mt-6">
+          <a
+            class="btn btn-primary"
+            href={site.whatsappLink}
+            data-analytics="whatsapp"
+            data-location="horarios"
+          >
+            Consultar horarios
+          </a>
+        </div>
+      </div>
+      <div class="card">
+        <ul class="space-y-3 text-sm text-mist">
+          <li class="flex items-center justify-between">
+            <span>Lunes a Viernes</span>
+            <span class="text-white/80">Por confirmar</span>
+          </li>
+          <li class="flex items-center justify-between">
+            <span>Sábados</span>
+            <span class="text-white/80">Por confirmar</span>
+          </li>
+          <li class="flex items-center justify-between">
+            <span>Domingos y feriados</span>
+            <span class="text-white/80">Por confirmar</span>
+          </li>
+        </ul>
+        <p class="mt-4 text-xs text-mist/80">
+          Condiciones por confirmar. Escríbenos por WhatsApp.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid gap-10 lg:grid-cols-2 lg:items-center">
+      <div>
+        <p class="eyebrow">Clases</p>
+        <h2 class="mt-4 font-heading text-3xl md:text-4xl">
+          Sala grupal y clases para mantenerte motivado
+        </h2>
+        <p class="mt-4 text-mist">
+          Baile, aeróbicos, spinning, yoga, zumba y funcional. Condiciones por
+          confirmar. Escríbenos por WhatsApp.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3 text-xs uppercase tracking-[0.25em] text-mist">
+          {site.classes.map((item) => (
+            <span class="badge">{item}</span>
+          ))}
+        </div>
+        <div class="mt-8">
+          <a class="btn btn-primary" href="/clases">Ver clases</a>
+        </div>
+      </div>
+      <div>
+        <!-- TODO: Reemplazar con foto real del local (optimizada en WebP) -->
+        <img
+          src="/images/placeholder-gym-2.svg"
+          alt="Sala grupal — imagen referencial"
+          class="w-full rounded-3xl border border-white/10 shadow-2xl shadow-black/40"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <div>
+          <p class="eyebrow">Promos Febrero 2026</p>
+          <h2 class="mt-4 font-heading text-3xl md:text-4xl">Elige tu plan y empieza hoy</h2>
+          <p class="mt-4 max-w-2xl text-mist">
+            Planes diseñados para avanzar con disciplina y soporte. Condiciones por
+            confirmar. Escríbenos por WhatsApp.
+          </p>
+        </div>
+        <a class="btn btn-outline" href="/planes">Ver todos los planes</a>
+      </div>
+      <div class="mt-10">
+        <PromoCards />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">Instalaciones</p>
+      <h2 class="mt-4 font-heading text-3xl md:text-4xl">Ambiente premium, amplio y ordenado</h2>
+      <div class="mt-10 grid gap-6 md:grid-cols-2">
+        <article class="card">
+          <!-- TODO: Reemplazar con foto real del local (optimizada en WebP) -->
+          <img
+            src="/images/placeholder-gym-3.svg"
+            alt="Área de cardio — imagen referencial"
+            class="w-full rounded-2xl border border-white/10"
+            loading="lazy"
+          />
+          <h3 class="mt-6 font-heading text-2xl tracking-wide">Cardio + funcional</h3>
+          <p class="mt-3 text-mist">
+            Espacio dinámico para resistencia, movilidad y fuerza.
+          </p>
+        </article>
+        <article class="card">
+          <h3 class="font-heading text-2xl tracking-wide">Sauna y cafetería</h3>
+          <p class="mt-3 text-mist">
+            Recupera tu energía y conecta con tu rutina saludable en un ambiente cómodo.
+          </p>
+          <ul class="mt-6 list-disc space-y-2 pl-5 text-sm text-mist">
+            <li>Sauna para recuperación</li>
+            <li>Cafetería con opciones saludables</li>
+            <li>Estacionamiento accesible</li>
+            <li>Pagos con tarjetas de crédito y débito</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">Testimonios</p>
+      <h2 class="mt-4 font-heading text-3xl md:text-4xl">Resultados reales, experiencia premium</h2>
+      <div class="mt-10">
+        <TestimonialGrid />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid gap-10 lg:grid-cols-2 lg:items-center">
+      <div>
+        <p class="eyebrow">Ubicación</p>
+        <h2 class="mt-4 font-heading text-3xl md:text-4xl">Estamos en el corazón de Trujillo</h2>
+        <p class="mt-4 text-mist">{site.address}. Acceso fácil y estacionamiento accesible.</p>
+        <div class="mt-6 flex flex-wrap gap-4">
+          <a
+            class="btn btn-primary"
+            href={site.mapsLink}
+            target="_blank"
+            rel="noreferrer"
+            data-analytics="map"
+            data-location="home-ubicacion"
+          >
+            Abrir en Google Maps
+          </a>
+          <a class="btn btn-outline" href="/ubicacion">Ver ubicación</a>
+        </div>
+      </div>
+      <div>
+        <!-- TODO: Reemplazar con foto real del local (optimizada en WebP) -->
+        <img
+          src="/images/placeholder-map.svg"
+          alt="Mapa de ubicación — imagen referencial"
+          class="w-full rounded-3xl border border-white/10"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section pt-0">
+    <div class="container">
+      <div class="card flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+        <div>
+          <p class="eyebrow">Empieza hoy</p>
+          <h2 class="mt-2 font-heading text-3xl">Cambia tu vida en un solo CLICK</h2>
+          <p class="mt-2 text-mist">Resuelve dudas y asegura tu plan ideal por WhatsApp.</p>
+        </div>
+        <a
+          class="btn btn-primary"
+          href={site.whatsappLink}
+          data-analytics="whatsapp"
+          data-location="cta-final"
+        >
+          Hablar con asesor
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,80 @@
+﻿---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../data/site";
+
+const description =
+  "Clases grupales de baile, aeróbicos, spinning, yoga, zumba y funcional en Trujillo. Consulta horarios por WhatsApp.";
+---
+
+<BaseLayout title="Clases" description={description}>
+  <section class="section">
+    <div class="container grid gap-10 lg:grid-cols-2 lg:items-center">
+      <div>
+        <p class="badge">Sala grupal</p>
+        <h1 class="mt-6 font-heading text-4xl md:text-5xl">Clases que te mantienen motivado</h1>
+        <p class="mt-4 text-mist">
+          Sesiones dinámicas para energía, coordinación y resistencia. Condiciones por confirmar.
+          Escríbenos por WhatsApp.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a
+            class="btn btn-primary"
+            href={site.whatsappLink}
+            data-analytics="whatsapp"
+            data-location="clases-hero"
+          >
+            Consultar horarios
+          </a>
+          <a class="btn btn-outline" href="/planes">Ver planes</a>
+        </div>
+      </div>
+      <div>
+        <!-- TODO: Reemplazar con foto real del local (optimizada en WebP) -->
+        <img
+          src="/images/placeholder-gym-2.svg"
+          alt="Sala grupal — imagen referencial"
+          class="w-full rounded-3xl border border-white/10 shadow-2xl shadow-black/40"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section pt-0">
+    <div class="container">
+      <div class="grid-cards">
+        {site.classes.map((item) => (
+          <article class="card">
+            <h3 class="font-heading text-2xl">{item}</h3>
+            <p class="mt-3 text-mist">
+              Entrenamiento grupal con energía alta y foco en tu progreso.
+            </p>
+          </article>
+        ))}
+      </div>
+      <p class="mt-6 text-xs text-mist/80">Condiciones por confirmar. Escríbenos por WhatsApp.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="card flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+        <div>
+          <p class="eyebrow">Inscríbete</p>
+          <h2 class="mt-2 font-heading text-3xl">Reserva tu clase ahora</h2>
+          <p class="mt-2 text-mist">
+            Te ayudamos a elegir la clase ideal según tu objetivo.
+          </p>
+        </div>
+        <a
+          class="btn btn-primary"
+          href={site.whatsappLink}
+          data-analytics="whatsapp"
+          data-location="clases-cta"
+        >
+          Hablar con asesor
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

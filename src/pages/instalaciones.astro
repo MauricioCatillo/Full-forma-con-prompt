@@ -1,0 +1,95 @@
+﻿---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../data/site";
+
+const description =
+  "Instalaciones premium en Trujillo con musculación, cardio, funcional, sala grupal, sauna y cafetería.";
+---
+
+<BaseLayout title="Instalaciones" description={description}>
+  <section class="section">
+    <div class="container grid gap-10 lg:grid-cols-2 lg:items-center">
+      <div>
+        <p class="badge">Instalaciones premium</p>
+        <h1 class="mt-6 font-heading text-4xl md:text-5xl">
+          Espacios amplios, ordenados y listos para tu mejor versión
+        </h1>
+        <p class="mt-4 text-mist">
+          Zonas diseñadas para rendimiento, recuperación y experiencia premium. Condiciones por confirmar.
+          Escríbenos por WhatsApp.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a
+            class="btn btn-primary"
+            href={site.whatsappLink}
+            data-analytics="whatsapp"
+            data-location="instalaciones-hero"
+          >
+            Reservar visita
+          </a>
+          <a class="btn btn-outline" href="/contacto">Hablar con asesor</a>
+        </div>
+      </div>
+      <div>
+        <!-- TODO: Reemplazar con foto real del local (optimizada en WebP) -->
+        <img
+          src="/images/placeholder-gym-1.svg"
+          alt="Zona de musculación — imagen referencial"
+          class="w-full rounded-3xl border border-white/10 shadow-2xl shadow-black/40"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section pt-0">
+    <div class="container grid gap-6 md:grid-cols-2">
+      <article class="card">
+        <!-- TODO: Reemplazar con foto real del local (optimizada en WebP) -->
+        <img
+          src="/images/placeholder-gym-3.svg"
+          alt="Área de cardio — imagen referencial"
+          class="w-full rounded-2xl border border-white/10"
+          loading="lazy"
+        />
+        <h3 class="mt-6 font-heading text-2xl">Cardio y resistencia</h3>
+        <p class="mt-3 text-mist">
+          Máquinas listas para sesiones de alta energía y progresión constante.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3 class="font-heading text-2xl">Funcional + sala grupal</h3>
+        <p class="mt-3 text-mist">
+          Espacio versátil para clases y entrenamiento funcional con impacto real.
+        </p>
+        <ul class="mt-6 list-disc space-y-2 pl-5 text-sm text-mist">
+          <li>Clases: baile, aeróbicos, spinning, yoga, zumba y funcional</li>
+          <li>Ambiente amplio y ordenado</li>
+          <li>Condiciones por confirmar. Escríbenos por WhatsApp.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3 class="font-heading text-2xl">Musculación</h3>
+        <p class="mt-3 text-mist">
+          Equipo completo para fuerza, hipertrofia y rendimiento sostenible.
+        </p>
+        <p class="mt-4 text-xs text-mist/80">Condiciones por confirmar. Escríbenos por WhatsApp.</p>
+      </article>
+
+      <article class="card">
+        <h3 class="font-heading text-2xl">Sauna y cafetería</h3>
+        <p class="mt-3 text-mist">
+          Recupera y recarga energía con servicios pensados para tu bienestar.
+        </p>
+        <ul class="mt-6 list-disc space-y-2 pl-5 text-sm text-mist">
+          <li>Sauna para recuperación</li>
+          <li>Cafetería con opciones saludables</li>
+          <li>Estacionamiento accesible</li>
+          <li>Pagos con tarjetas de crédito y débito</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+</BaseLayout>

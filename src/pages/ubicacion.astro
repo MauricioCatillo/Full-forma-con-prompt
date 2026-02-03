@@ -1,0 +1,78 @@
+﻿---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../data/site";
+
+const description =
+  "Ubicación de Gimnasio Full Forma en Trujillo. Dirección, mapa y contacto directo por WhatsApp o llamada.";
+---
+
+<BaseLayout title="Ubicación" description={description}>
+  <section class="section">
+    <div class="container grid gap-10 lg:grid-cols-2 lg:items-center">
+      <div>
+        <p class="badge">Ubicación</p>
+        <h1 class="mt-6 font-heading text-4xl md:text-5xl">Estamos en Trujillo</h1>
+        <p class="mt-4 text-mist">{site.address}</p>
+        <div class="mt-6 space-y-2 text-sm text-mist">
+          <p>Coordenadas: {site.coords.lat}, {site.coords.lng}</p>
+          <p>Estacionamiento accesible disponible</p>
+        </div>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a
+            class="btn btn-primary"
+            href={site.mapsLink}
+            target="_blank"
+            rel="noreferrer"
+            data-analytics="map"
+            data-location="ubicacion-mapa"
+          >
+            Abrir en Google Maps
+          </a>
+          <a
+            class="btn btn-outline"
+            href={site.phoneLink}
+            data-analytics="call"
+            data-location="ubicacion-llamada"
+          >
+            Llamar ahora
+          </a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="aspect-video w-full overflow-hidden rounded-2xl border border-white/10">
+          <iframe
+            title="Mapa de Gimnasio Full Forma"
+            src="https://www.google.com/maps?output=embed&q=-8.1114105,-79.0319458&z=17"
+            class="h-full w-full"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section pt-0">
+    <div class="container">
+      <div class="card flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+        <div>
+          <p class="eyebrow">Cómo llegar</p>
+          <h2 class="mt-2 font-heading text-3xl">Acceso fácil y ubicación estratégica</h2>
+          <p class="mt-2 text-mist">
+            Escríbenos para indicaciones personalizadas. Condiciones por confirmar.
+            Escríbenos por WhatsApp.
+          </p>
+        </div>
+        <a
+          class="btn btn-primary"
+          href={site.whatsappLink}
+          data-analytics="whatsapp"
+          data-location="ubicacion-whatsapp"
+        >
+          Escribir por WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

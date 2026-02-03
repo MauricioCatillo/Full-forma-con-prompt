@@ -1,0 +1,127 @@
+﻿---
+import "../styles/global.css";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import WhatsAppFloat from "../components/WhatsAppFloat.astro";
+import { site } from "../data/site";
+
+const { title, description, path } = Astro.props;
+
+const pagePath = path ?? Astro.url.pathname;
+const siteUrl = Astro.site ?? new URL(import.meta.env.SITE_URL ?? "https://example.com");
+const canonical = new URL(pagePath, siteUrl).toString();
+
+const fullTitle = title === site.name ? title : `${title} | ${site.name}`;
+const ogImage = new URL("/og-placeholder.svg", siteUrl).toString();
+const gaId = import.meta.env.PUBLIC_GA4_ID;
+
+const amenityFeatures = [...site.amenities, ...site.accessibility].map((name) => ({
+  "@type": "LocationFeatureSpecification",
+  name,
+  value: true
+}));
+
+const healthClubSchema = {
+  "@context": "https://schema.org",
+  "@type": "HealthClub",
+  "@id": `${siteUrl.toString()}#healthclub`,
+  name: site.name,
+  description: "Gimnasio premium en Trujillo con musculación, cardio, funcional y sala grupal.",
+  slogan: site.slogan,
+  url: siteUrl.toString(),
+  telephone: site.phoneInternational,
+  email: site.email,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: site.streetAddress,
+    addressLocality: site.locality,
+    postalCode: site.postalCode,
+    addressCountry: site.country
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: site.coords.lat,
+    longitude: site.coords.lng
+  },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: site.rating,
+    reviewCount: site.reviewsCount
+  },
+  amenityFeature: amenityFeatures,
+  paymentAccepted: site.payments.join(", "),
+  sameAs: [site.mapsLink]
+};
+---
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:alt" content={`Imagen de ${site.name}`} />
+    <meta property="og:locale" content="es_PE" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script type="application/ld+json">{JSON.stringify(healthClubSchema)}</script>
+    <slot name="head" />
+  </head>
+  <body class="min-h-screen text-white font-sans" data-page={pagePath === "/" ? "home" : pagePath.replace("/", "")}>
+    <Navbar />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+    <WhatsAppFloat />
+
+    {gaId && (
+      <>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
+        <script is:inline>
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${gaId}', { anonymize_ip: true });`}
+        </script>
+      </>
+    )}
+
+    <script is:inline>
+      {`document.addEventListener('click', (event) => {
+  const target = event.target.closest('[data-analytics]');
+  if (!target) return;
+  const type = target.getAttribute('data-analytics');
+  const page = document.body?.dataset.page || window.location.pathname || 'page';
+  const location = target.getAttribute('data-location') || 'unknown';
+  let eventName = '';
+  if (type === 'whatsapp') eventName = 'click_whatsapp';
+  if (type === 'call') eventName = 'click_call';
+  if (type === 'map') eventName = 'open_map';
+  if (!eventName) return;
+  const payload = { page };
+  if (type === 'whatsapp') payload.button_location = location;
+  if (window.gtag) {
+    window.gtag('event', eventName, payload);
+  }
+});`}
+    </script>
+  </body>
+</html>

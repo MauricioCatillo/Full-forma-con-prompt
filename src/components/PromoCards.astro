@@ -1,0 +1,27 @@
+﻿---
+import { site } from "../data/site";
+---
+
+<div class="grid-cards">
+  {site.promos.map((promo) => (
+    <article class="card">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <p class="badge">{promo.badge}</p>
+          <h3 class="mt-4 font-heading text-2xl tracking-wide">{promo.name}</h3>
+        </div>
+        <span class="text-xs uppercase tracking-[0.25em] text-gold">Febrero 2026</span>
+      </div>
+      <p class="mt-4 text-mist">{promo.description}</p>
+      <p class="mt-4 text-xs text-mist/80">{promo.note}</p>
+      <a
+        class="btn btn-primary mt-6 w-full"
+        href={promo.whatsapp}
+        data-analytics="whatsapp"
+        data-location={`promo-${promo.id}`}
+      >
+        Quiero este plan
+      </a>
+    </article>
+  ))}
+</div>

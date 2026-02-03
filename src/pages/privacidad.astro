@@ -1,0 +1,40 @@
+﻿---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../data/site";
+
+const description =
+  "Política de privacidad de Gimnasio Full Forma. Información sobre datos, contacto y analítica opcional.";
+---
+
+<BaseLayout title="Privacidad" description={description}>
+  <section class="section">
+    <div class="container">
+      <p class="badge">Privacidad</p>
+      <h1 class="mt-6 font-heading text-4xl md:text-5xl">Política de privacidad</h1>
+
+      <div class="mt-6 space-y-4 text-mist">
+        <p>
+          En Gimnasio Full Forma respetamos tu privacidad. Usamos tus datos solo para
+          responder consultas, coordinar visitas y brindar información sobre nuestros
+          servicios.
+        </p>
+        <p>
+          Los datos de contacto que compartas por WhatsApp, llamada o email se usan
+          únicamente para atender tu solicitud. No vendemos ni cedemos tu información.
+        </p>
+        <p>
+          Este sitio puede activar analítica opcional (GA4) solo si se configura un ID
+          válido. Si no se configura, no se cargan cookies de analítica.
+        </p>
+        <p>
+          Para solicitar actualización o eliminación de tus datos, contáctanos en
+          {" "}
+          <a class="link-muted" href={`mailto:${site.email}`}>
+            {site.email}
+          </a>
+          .
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

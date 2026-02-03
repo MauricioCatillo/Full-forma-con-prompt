@@ -1,0 +1,103 @@
+﻿---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PromoCards from "../components/PromoCards.astro";
+import { site } from "../data/site";
+
+const description =
+  "Planes de gimnasio en Trujillo con promociones de Febrero 2026. Consulta condiciones por WhatsApp.";
+---
+
+<BaseLayout title="Planes" description={description}>
+  <section class="section">
+    <div class="container grid gap-10 lg:grid-cols-2 lg:items-center">
+      <div>
+        <p class="badge">Promos Febrero 2026</p>
+        <h1 class="mt-6 font-heading text-4xl md:text-5xl">
+          Planes diseñados para resultados visibles
+        </h1>
+        <p class="mt-4 text-mist">
+          Elige el plan ideal y recibe asesoría personalizada. Condiciones por confirmar.
+          Escríbenos por WhatsApp.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a
+            class="btn btn-primary"
+            href={site.whatsappLink}
+            data-analytics="whatsapp"
+            data-location="planes-hero"
+          >
+            Quiero asesoría
+          </a>
+          <a class="btn btn-outline" href="/contacto">Agendar visita</a>
+        </div>
+      </div>
+      <div class="card">
+        <h3 class="font-heading text-2xl">Beneficios Full Forma</h3>
+        <ul class="mt-4 list-disc space-y-2 pl-5 text-sm text-mist">
+          <li>Acceso a musculación, cardio y funcional</li>
+          <li>Sala grupal y clases dinámicas</li>
+          <li>Sauna y cafetería disponibles</li>
+          <li>Estacionamiento accesible</li>
+          <li>Pagos con tarjetas de crédito y débito</li>
+        </ul>
+        <p class="mt-4 text-xs text-mist/80">
+          Condiciones por confirmar. Escríbenos por WhatsApp.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section pt-0">
+    <div class="container">
+      <PromoCards />
+    </div>
+  </section>
+
+  <section class="section pt-0">
+    <div class="container grid gap-8 lg:grid-cols-2 lg:items-center">
+      <div>
+        <p class="eyebrow">Qué incluye tu membresía</p>
+        <h2 class="mt-4 font-heading text-3xl md:text-4xl">Todo lo esencial para tu progreso</h2>
+        <p class="mt-4 text-mist">
+          Acceso integral a las áreas clave y soporte para mantener tu constancia.
+          Condiciones por confirmar. Escríbenos por WhatsApp.
+        </p>
+      </div>
+      <div class="card">
+        <ul class="list-disc space-y-2 pl-5 text-sm text-mist">
+          <li>Musculación, cardio y funcional</li>
+          <li>Sala grupal y clases dinámicas</li>
+          <li>Sauna y cafetería disponibles</li>
+          <li>Estacionamiento accesible</li>
+          <li>Pagos con tarjetas de crédito y débito</li>
+        </ul>
+        <p class="mt-4 text-xs text-mist/80">
+          Condiciones por confirmar. Escríbenos por WhatsApp.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="card flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+        <div>
+          <p class="eyebrow">Plan a medida</p>
+          <h2 class="mt-2 font-heading text-3xl">Necesitas un plan personalizado</h2>
+          <p class="mt-2 text-mist">
+            Cuéntanos tu objetivo y te recomendamos la mejor opción. Condiciones por
+            confirmar. Escríbenos por WhatsApp.
+          </p>
+        </div>
+        <a
+          class="btn btn-primary"
+          href={site.whatsappLink}
+          data-analytics="whatsapp"
+          data-location="planes-personalizado"
+        >
+          Hablar con asesor
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,13 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#111723" />
+      <stop offset="100%" stop-color="#0b0f14" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <rect x="60" y="60" width="1080" height="510" rx="32" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="4" />
+  <text x="90" y="180" fill="#f5c84b" font-size="64" font-family="Bebas Neue, sans-serif">GIMNASIO FULL FORMA</text>
+  <text x="90" y="260" fill="#ffffff" font-size="38" font-family="Bebas Neue, sans-serif" letter-spacing="4">Cambia tu vida en un solo CLICK</text>
+  <text x="90" y="320" fill="#aab4c3" font-size="22" font-family="Manrope, sans-serif">Imagen referencial — reemplazar por imagen real</text>
+</svg>

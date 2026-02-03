@@ -1,0 +1,99 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-height: 100%;
+    position: relative;
+    background-color: #0b0f14;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    background:
+      radial-gradient(1200px 600px at 10% 10%, rgba(245, 200, 75, 0.12), transparent 60%),
+      radial-gradient(900px 500px at 90% 0%, rgba(61, 220, 132, 0.1), transparent 60%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0));
+  }
+
+  a {
+    color: inherit;
+  }
+
+  ::selection {
+    background: #f5c84b;
+    color: #0b0f14;
+  }
+
+  :focus-visible {
+    outline: 2px solid #f5c84b;
+    outline-offset: 3px;
+  }
+
+  summary {
+    list-style: none;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+}
+
+@layer components {
+  .container {
+    @apply mx-auto max-w-6xl px-5;
+  }
+
+  .section {
+    @apply py-16 md:py-24;
+  }
+
+  .eyebrow {
+    @apply text-xs uppercase tracking-[0.3em] text-mist/70;
+  }
+
+  .card {
+    @apply rounded-2xl border border-white/10 bg-carbon/60 p-6 shadow-lg shadow-black/30;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-mist;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition duration-200;
+  }
+
+  .btn-primary {
+    @apply bg-gold text-midnight hover:bg-gold/90;
+  }
+
+  .btn-secondary {
+    @apply bg-white/10 text-white hover:bg-white/20;
+  }
+
+  .btn-outline {
+    @apply border border-white/25 text-white hover:border-gold hover:text-gold;
+  }
+
+  .link-muted {
+    @apply text-mist hover:text-white;
+  }
+
+  .grid-cards {
+    @apply grid gap-6 md:grid-cols-3;
+  }
+}

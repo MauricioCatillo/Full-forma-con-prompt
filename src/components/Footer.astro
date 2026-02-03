@@ -1,0 +1,64 @@
+﻿---
+import { site, navLinks } from "../data/site";
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-white/10">
+  <div class="container grid gap-10 py-12 md:grid-cols-3">
+    <div>
+      <p class="font-heading text-2xl tracking-wide">{site.name}</p>
+      <p class="mt-3 text-sm text-mist">{site.slogan}</p>
+      <p class="mt-4 text-sm text-mist">{site.address}</p>
+    </div>
+
+    <div>
+      <p class="text-xs uppercase tracking-[0.3em] text-mist/70">Explorar</p>
+      <div class="mt-4 flex flex-col gap-2 text-sm">
+        {navLinks.map((link) => (
+          <a class="link-muted" href={link.href}>
+            {link.label}
+          </a>
+        ))}
+        <a class="link-muted" href="/privacidad">Privacidad</a>
+      </div>
+    </div>
+
+    <div>
+      <p class="text-xs uppercase tracking-[0.3em] text-mist/70">Contacto</p>
+      <div class="mt-4 flex flex-col gap-2 text-sm text-mist">
+        <a
+          class="link-muted"
+          href={site.whatsappLink}
+          data-analytics="whatsapp"
+          data-location="footer"
+        >
+          WhatsApp: {site.whatsappDisplay}
+        </a>
+        <a
+          class="link-muted"
+          href={site.phoneLink}
+          data-analytics="call"
+          data-location="footer"
+        >
+          Teléfono: {site.phoneDisplay}
+        </a>
+        <a class="link-muted" href={`mailto:${site.email}`}>{site.email}</a>
+        <a
+          class="link-muted"
+          href={site.mapsLink}
+          target="_blank"
+          rel="noreferrer"
+          data-analytics="map"
+          data-location="footer"
+        >
+          Ver en Google Maps
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="border-t border-white/10 py-6 text-center text-xs text-mist">
+    © {year} {site.name}. Propuesta demo ·
+    <a class="link-muted" href="/privacidad">Privacidad</a>
+  </div>
+</footer>

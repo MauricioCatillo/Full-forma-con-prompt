@@ -1,0 +1,88 @@
+﻿---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../data/site";
+
+const description =
+  "Contacto directo con Gimnasio Full Forma en Trujillo. WhatsApp, llamada y correo para agendar tu visita.";
+---
+
+<BaseLayout title="Contacto" description={description}>
+  <section class="section">
+    <div class="container">
+      <p class="badge">Contacto directo</p>
+      <h1 class="mt-6 font-heading text-4xl md:text-5xl">Hablemos de tu objetivo</h1>
+      <p class="mt-4 text-mist">
+        Responde rápido por WhatsApp o llamada. Condiciones por confirmar. Escríbenos por WhatsApp.
+      </p>
+
+      <div class="mt-10 grid gap-6 md:grid-cols-3">
+        <article class="card">
+          <h2 class="font-heading text-2xl">WhatsApp</h2>
+          <p class="mt-3 text-mist">Atención inmediata y asesoría personalizada.</p>
+          <a
+            class="btn btn-primary mt-6 w-full"
+            href={site.whatsappLink}
+            data-analytics="whatsapp"
+            data-location="contacto-whatsapp"
+          >
+            {site.whatsappDisplay}
+          </a>
+        </article>
+
+        <article class="card">
+          <h2 class="font-heading text-2xl">Llamada</h2>
+          <p class="mt-3 text-mist">Coordina tu visita en minutos.</p>
+          <a
+            class="btn btn-outline mt-6 w-full"
+            href={site.phoneLink}
+            data-analytics="call"
+            data-location="contacto-llamada"
+          >
+            {site.phoneDisplay}
+          </a>
+        </article>
+
+        <article class="card">
+          <h2 class="font-heading text-2xl">Email</h2>
+          <p class="mt-3 text-mist">Para consultas más detalladas.</p>
+          <a class="btn btn-secondary mt-6 w-full" href={`mailto:${site.email}`}>
+            {site.email}
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section pt-0">
+    <div class="container">
+      <div class="card flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+        <div>
+          <p class="eyebrow">Agenda</p>
+          <h2 class="mt-2 font-heading text-3xl">Reserva tu visita hoy</h2>
+          <p class="mt-2 text-mist">Dirección: {site.address}</p>
+          <p class="mt-2 text-xs text-mist/80">
+            Condiciones por confirmar. Escríbenos por WhatsApp.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-4">
+          <a
+            class="btn btn-primary"
+            href={site.whatsappLink}
+            data-analytics="whatsapp"
+            data-location="contacto-cta"
+          >
+            Escribir por WhatsApp
+          </a>
+          <a
+            class="btn btn-outline"
+            href={site.phoneLink}
+            data-analytics="call"
+            data-location="contacto-cta"
+          >
+            Llamar ahora
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
