@@ -1,4 +1,13 @@
-﻿# Gimnasio Full Forma
+## Demo
+https://fullforma.netlify.app/
+
+## Qué incluye
+- Landing premium orientada a conversión (CTA WhatsApp/llamada/mapa)
+- Secciones: Planes, Clases, Instalaciones, Ubicación, Contacto y FAQ
+- Responsive + performance + SEO básico
+
+ 
+ # Gimnasio Full Forma
 
 Sitio web premium para captación de leads y cierre por WhatsApp/llamada.
 
